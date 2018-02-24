@@ -1,4 +1,4 @@
-package com.os.aucauc.utils;
+package njj.androidutillib;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

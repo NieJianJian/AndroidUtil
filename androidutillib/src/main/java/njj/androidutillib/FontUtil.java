@@ -1,4 +1,4 @@
-package com.example.jian.myapplication.util;
+package njj.androidutillib;
 
 import android.app.Activity;
 import android.app.Dialog;

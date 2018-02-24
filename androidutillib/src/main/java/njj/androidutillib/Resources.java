@@ -1,4 +1,4 @@
-package com.example.jian.myapplication.util;
+package njj.androidutillib;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -6,8 +6,6 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
-
-import com.example.jian.myapplication.MyApplication;
 
 /**
  * Created by jian on 2016/10/14.

@@ -1,4 +1,4 @@
-package com.example.jian.myapplication.util;
+package njj.androidutillib;
 
 import android.content.Context;
 import android.util.Log;

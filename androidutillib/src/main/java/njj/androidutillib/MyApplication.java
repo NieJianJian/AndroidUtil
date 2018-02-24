@@ -1,4 +1,4 @@
-package com.example.mytest1;
+package njj.androidutillib;
 
 import android.app.Activity;
 import android.app.Application;

@@ -1,4 +1,4 @@
-package com.example.jian.myapplication.util;
+package njj.androidutillib;
 
 import android.support.annotation.NonNull;
 
