@@ -40,7 +40,7 @@ public class CreateDimensUtil {
             Document document = builder.newDocument();
 
             Element resources = document.createElement("resources");
-            for (int i = 1; i <= length; i++) {
+            for (int i = 0; i <= length; i++) {
                 Element dimen = document.createElement("dimen");
                 float f = (float) i / density;
                 BigDecimal b = new BigDecimal(f);
@@ -50,7 +50,7 @@ public class CreateDimensUtil {
                 resources.appendChild(dimen);
             }
 
-            for (int i = 1; i <= 100; i++) {
+            for (int i = 0; i <= 100; i++) {
                 Element dimen = document.createElement("dimen");
                 float f = (float) i / density;
                 DecimalFormat fnum = new DecimalFormat("##0.00"); // 保留两位小数
