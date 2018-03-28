@@ -1,14 +1,14 @@
-package njj.androidutillib;
+package njj.util;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.text.TextUtils;
-import android.util.Log;
 
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+
 
 public class Channels {
 
@@ -24,8 +24,6 @@ public class Channels {
         if (TextUtils.isEmpty(channel)) {
             channel = getChannelInner(context);
         }
-
-        Log.i("niejianjian", "Channels -> channel = " + channel + "VersionName = " + BuildConfig.VERSION_NAME);
 
         return channel;
     }

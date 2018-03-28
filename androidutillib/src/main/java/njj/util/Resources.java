@@ -1,4 +1,4 @@
-package njj.androidutillib;
+package njj.util;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

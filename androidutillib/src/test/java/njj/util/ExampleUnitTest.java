@@ -1,4 +1,4 @@
-package njj.androidutillib;
+package njj.util;
 
 import org.junit.Test;
 
