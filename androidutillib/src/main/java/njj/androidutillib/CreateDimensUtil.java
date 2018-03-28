@@ -33,7 +33,7 @@ public class CreateDimensUtil {
      * @param density    指定屏幕密度，根据px和density来计算需要的dp值，或者sp值
      * @param targetFile 目标存储文件
      */
-    public static void createDeimensXml(int length, float density, File targetFile) {
+    public static boolean createDeimensXml(int length, float density, File targetFile) {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder builder = factory.newDocumentBuilder();
@@ -77,7 +77,7 @@ public class CreateDimensUtil {
             if (!file.exists()) file.delete();
             // 使用Transformer的transform()方法将DOM树转换成XML
             tf.transform(new DOMSource(document), new StreamResult(file));
-
+            return true;
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         } catch (TransformerConfigurationException e) {
@@ -85,5 +85,6 @@ public class CreateDimensUtil {
         } catch (TransformerException e) {
             e.printStackTrace();
         }
+        return false;
     }
 }
