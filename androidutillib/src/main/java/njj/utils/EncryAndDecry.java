@@ -1,4 +1,4 @@
-package njj.util;
+package njj.utils;
 
 import android.text.TextUtils;
 import android.util.Log;

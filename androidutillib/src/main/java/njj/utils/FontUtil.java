@@ -1,4 +1,4 @@
-package njj.util;
+package njj.utils;
 
 import android.app.Activity;
 import android.app.Dialog;

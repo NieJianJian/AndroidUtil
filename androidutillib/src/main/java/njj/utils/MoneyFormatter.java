@@ -1,4 +1,4 @@
-package njj.util;
+package njj.utils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
