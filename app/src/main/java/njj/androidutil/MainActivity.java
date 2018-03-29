@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import njj.androidutillib.CreateDimensUtil;
+import njj.utils.CreateDimensUtil;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
