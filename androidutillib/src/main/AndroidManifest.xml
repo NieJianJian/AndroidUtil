@@ -13,6 +13,12 @@
         android:label="@string/app_name"
         android:supportsRtl="true">
 
+        <activity
+            android:name=".permission.PermissionActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/Stealth_activity"/>
+
     </application>
 
 </manifest>

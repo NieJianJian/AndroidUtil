@@ -34,14 +34,10 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
     compile 'com.android.support:appcompat-v7:25.3.1'
-    testCompile 'junit:junit:4.12'
 }
 
-version = "1.0.0"       //这个是版本号，必须填写
+version = "1.0.2"       //这个是版本号，必须填写
 def siteUrl = 'https://github.com/NieJianJian/AndroidUtil'      // 项目的主页   这个是说明，可随便填
 def gitUrl = 'git@github.com:NieJianJian/AndroidUtil.git'      // Git仓库的url  这个是说明，可随便填
 //compile 'com.arshowbaby:mylibrary:1.0.0'中的com.arshowbaby
