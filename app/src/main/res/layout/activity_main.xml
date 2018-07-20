@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="10dp">
 
         <TextView
@@ -24,14 +24,23 @@
             android:id="@+id/density_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
             android:text="Density ："
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/use_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="建议使用值 ："
             android:textColor="#000000"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:orientation="horizontal"
         android:padding="5dp">
 
@@ -83,4 +92,15 @@
         android:layout_height="wrap_content"
         android:text="生成dimens.xml文件"/>
 
+    <Button
+        android:id="@+id/permission_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="申请权限"/>
+
+    <Button
+        android:id="@+id/settings_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="申请权限"/>
 </LinearLayout>
