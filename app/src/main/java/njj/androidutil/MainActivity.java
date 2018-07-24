@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -25,7 +24,7 @@ import njj.utils.permission.ReqPermisson;
 public class MainActivity extends Activity implements View.OnClickListener {
 
     private EditText mSizeEt, mDensityEt;
-    private Button mCreateBtn, mPermissionBtn, mSettginsBtn;
+    private Button mCreateBtn, mPermissionBtn, mSettginsBtn, mSecondBtn;
     private TextView mWidthHeightTv, mDensityTv, mUseTv;
     private final int STANDARD = 1080;
 
@@ -49,6 +48,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         mPermissionBtn.setOnClickListener(this);
         mSettginsBtn = (Button) findViewById(R.id.settings_btn);
         mSettginsBtn.setOnClickListener(this);
+        mSecondBtn = (Button) findViewById(R.id.second_btn);
+        mSecondBtn.setOnClickListener(this);
 
         init();
     }
@@ -83,29 +84,29 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.permission_btn:
                 ReqPermisson.init(this)
-                        .isShowDialog(true)
+                        .isShowDialog(true) // 不设置默认为true
                         .addPermission(
                                 Manifest.permission.CALL_PHONE,
                                 Manifest.permission.READ_EXTERNAL_STORAGE,
                                 Manifest.permission.READ_PHONE_STATE,
                                 Manifest.permission.CAMERA)
-                        .isShowDialog(true)
-                        .setAgainMsg("dfadsfdsfdsfdsf")
+                        .setAgainMsg("禁止相关权限将导致应用无法正常使用") // 自定义禁止授予权限dialog的弹窗提示信息。（未勾选下次不在询问）
+                        .setSettingMsg("禁止相关权限将导致应用无法正常使用") // 自定义禁止授予权限dialog的弹窗提示信息。（勾选下次不在询问）
                         .request(new PermissionCallback() {
 
                             @Override
                             public void onFinish(boolean isFinish) {
-                                Log.i("niejianjian", " -> onFinish -> " + isFinish);
+                                // 权限申请全部完成，相关处理
                             }
 
                             @Override
                             public void onCancel(List<String> denyPermissions) {
-                                Log.i("niejianjian", " -> onCancel -> ");
+                                // 权限申请未全部授予，返回参数为拒绝的相应权限。一般在提示弹窗，点击取消后调用。
                             }
 
                             @Override
                             public void onDeny(boolean isCheck, List<String> denyPermissions) {
-                                Log.i("niejianjian", " -> onDeny -> " + isCheck);
+                                // 权限申请未全部授予，一定会调用，可联合isShowDialog(false)，去掉默认弹窗后，自定义逻辑处理
                             }
                         });
                 break;
@@ -113,6 +114,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 Uri packageURI = Uri.parse("package:" + getPackageName());
                 Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, packageURI);
                 startActivity(intent);
+                break;
+            case R.id.second_btn:
+                Intent intent1 = new Intent(this, SecondActivity.class);
+                startActivity(intent1);
                 break;
         }
     }
