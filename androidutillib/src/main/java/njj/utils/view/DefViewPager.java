@@ -12,6 +12,7 @@ import njj.utils.ViewPagerScroller;
  */
 public class DefViewPager extends ViewPager {
 
+    private DefViewpagerListener mListener; // 点击事件监听
     private boolean mNoScroll = false; // true表示不滑动，false表示允许滑动
     private boolean mSmoothScroll = true; // 是否需要平稳滑动效果，true表示需要
 
@@ -53,6 +54,11 @@ public class DefViewPager extends ViewPager {
     }
 
     @Override
+    public void setCurrentItem(int item) {
+        super.setCurrentItem(item, mSmoothScroll); // false表示不需要时间滚动，去除滚动效果
+    }
+
+    @Override
     public boolean onInterceptTouchEvent(MotionEvent arg0) {
         return !mNoScroll && super.onInterceptTouchEvent(arg0);
     }
@@ -62,8 +68,42 @@ public class DefViewPager extends ViewPager {
         return !mNoScroll && super.onTouchEvent(ev);
     }
 
+    /**************************************** start *******************************************/
+    /**
+     * 只是用于一般的轮播图设置，比如，每5秒切换一次轮播图，如果遇到点击事件，就取消自动轮播，
+     * 松手后，继续轮播，此设置只提供两个回调方法，具体相关逻辑，自己根据需求实现。
+     * 如不需要，不需要调用setListener()方法即可。
+     * 如有特殊需求，子类重写dispatchTouchEvent()方法即可
+     *
+     * @param ev
+     * @return
+     */
     @Override
-    public void setCurrentItem(int item) {
-        super.setCurrentItem(item, mSmoothScroll); // false表示不需要时间滚动，去除滚动效果
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (mListener != null) {
+            switch (ev.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    mListener.onClear();
+                    break;
+                case MotionEvent.ACTION_UP:
+                    mListener.onStart();
+                    break;
+                case MotionEvent.ACTION_CANCEL:
+                    mListener.onStart();
+                    break;
+            }
+        }
+        return super.dispatchTouchEvent(ev);
     }
+
+    public void setListener(DefViewpagerListener listener) {
+        this.mListener = listener;
+    }
+
+    public interface DefViewpagerListener {
+        void onClear();
+
+        void onStart();
+    }
+    /**************************************** end *******************************************/
 }
