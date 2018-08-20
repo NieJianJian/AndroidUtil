@@ -5,14 +5,14 @@ Android的工具类
 
 Gradle：
 
-    compile 'njj.utils:androidutillib:1.0.2'
+    compile 'njj.utils:androidutillib:1.0.5'
 
 Maven：
 
     <dependency>
       <groupId>njj.utils</groupId>
       <artifactId>androidutillib</artifactId>
-      <version>1.0.2</version>
+      <version>1.0.5</version>
       <type>pom</type>
     </dependency>
 
