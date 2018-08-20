@@ -17,7 +17,7 @@ Maven：
     </dependency>
 
 
-Android运行时权限申请使用方式：
+**Android运行时权限申请使用方式：**
 
 1.最简单的接入方式
         
@@ -56,3 +56,52 @@ Android运行时权限申请使用方式：
                             // 权限申请未全部授予，一定会调用，可联合isShowDialog(false)，去掉默认弹窗后，自定义逻辑处理
                         }
                 });
+                
+
+**屏幕适配引用方案：**
+
+1.最简单的接入方式
+        
+        
+        @Override
+        public void onCreate() {
+            super.onCreate();
+            Density.setDensity(this);
+            // Density.setSize(375f); // 设置基础宽高，如设计图是720*1280，density=2.0，对应的基础宽就是360f，不设置默认是360f
+            // Density.setSize(360f, 640f); // 也可以同时设置基础宽和高。当以高为基准进行适配时，要用到，默认是640f
+        }
+
+2.使用方式
+
+        @Override
+        protected void onCreate(@Nullable Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            Density.setDefault(this); // 要在setContentView()之前调用
+            // 默认是以宽为基础，进行适配，如果有需要根据高为基础进行适配,改为调用下面的代码。
+            // Density.setOrientation(this, Density.ORI_HEIGHT);
+            setContentView(R.layout.activity_second);
+        }
+
+3.优化调用，可以创建BaseActivity，完成调用
+
+        @Override
+        protected void onCreate(@Nullable Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setOrientation();
+            if (getLayout() != 0) {
+                setContentView(getLayout());
+            }
+        }
+
+        protected abstract int getLayout();
+
+        /**
+        * 如果改为以高度为基础进行适配，子类自行重写该方法，调用：
+        * Density.setOrientation(this, Density.ORI_HEIGHT);
+        */
+        public void setOrientation() {
+            Density.setDefault(this);
+        }
+
+
