@@ -19,7 +19,7 @@ Maven：
 
 **Android运行时权限申请使用方式：**
 
-1.最简单的接入方式
+1.最简单的接入方式（Activity的onCreate中调用）
         
         ReqPermisson.init(this)
                 .addPermission(
@@ -28,7 +28,7 @@ Maven：
                         Manifest.permission.CAMERA)
                 .request();
 
-2.个性化配置
+2.个性化配置（Activity的onCreate中调用）
         
         ReqPermisson.init(this)
                 .isShowDialog(true) // 不设置默认为true
@@ -60,9 +60,9 @@ Maven：
 
 **屏幕适配引用方案：**
 
-1.最简单的接入方式
-        
-        
+1.在Application中进行初始化
+    
+     public class MyApplication extends Application {
         @Override
         public void onCreate() {
             super.onCreate();
@@ -70,8 +70,9 @@ Maven：
             // Density.setSize(375f); // 设置基础宽高，如设计图是720*1280，density=2.0，对应的基础宽就是360f，不设置默认是360f
             // Density.setSize(360f, 640f); // 也可以同时设置基础宽和高。当以高为基准进行适配时，要用到，默认是640f
         }
-
-2.使用方式
+     }
+    
+2.使用方式 （Activity的onCreate中调用）
 
         @Override
         protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -85,6 +86,7 @@ Maven：
 
 3.优化调用，可以创建BaseActivity，完成调用
 
+    public class BaseActivity extends Activity {
         @Override
         protected void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -103,6 +105,7 @@ Maven：
         public void setOrientation() {
             Density.setDefault(this);
         }
+    }
 
 4.dimens.xml文件
 
@@ -110,8 +113,9 @@ https://github.com/NieJianJian/AndroidUtil/tree/master/app/src/main/res/values
 
 5.xml布局文件中的使用方式
 
-根据设计图设置，如果一个View设计图给出的宽高分别是100px * 50px，布局文件设置如下：
+根据设计图设置，如果一个View设计图给出的宽高分别是100px * 50px，字体大小为28px，布局文件设置如下：
     
     <TextView
         android:layout_width="@dimen/dimen_100px"
-        android:layout_height="@dimen/dimen_50px"/>
+        android:layout_height="@dimen/dimen_50px"
+        android:textSize="@dimen/tvSize_28px"/>

@@ -5,22 +5,22 @@
 
     <TextView
         android:id="@+id/textview1"
-        android:layout_width="@dimen/dimen_210px"
-        android:layout_height="@dimen/dimen_50px"
+        android:layout_width="@dimen/dimen_420px"
+        android:layout_height="@dimen/dimen_100px"
         android:background="#FF0000"
         android:gravity="center"
-        android:text="200dp"
+        android:text="210dp"
         android:textColor="#FFFFFF"/>
 
     <TextView
-        android:layout_width="@dimen/dimen_165px"
-        android:layout_height="@dimen/dimen_50px"
+        android:layout_width="@dimen/dimen_300px"
+        android:layout_height="@dimen/dimen_100px"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textview1"
         android:background="#FF00FF"
         android:gravity="center"
-        android:text="160dp"
-        android:textColor="#FFFFFF"
-        android:layout_below="@+id/textview1"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        android:text="150dp"
+        android:textColor="#FFFFFF"/>
 
 </RelativeLayout>
