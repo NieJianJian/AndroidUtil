@@ -107,3 +107,11 @@ Maven：
 4.dimens.xml文件
 
 https://github.com/NieJianJian/AndroidUtil/tree/master/app/src/main/res/values
+
+5.xml布局文件中的使用方式
+
+根据设计图设置，如果一个View设计图给出的宽高分别是100px * 50px，布局文件设置如下：
+    
+    <TextView
+        android:layout_width="@dimen/dimen_100px"
+        android:layout_height="@dimen/dimen_50px"/>
