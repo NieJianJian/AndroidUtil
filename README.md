@@ -104,4 +104,5 @@ Maven：
             Density.setDefault(this);
         }
 
-
+4.dimens.xml文件
+https://github.com/NieJianJian/AndroidUtil/tree/master/app/src/main/res/values
