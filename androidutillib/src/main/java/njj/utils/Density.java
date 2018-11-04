@@ -103,7 +103,7 @@ public class Density {
         float targetDensity;
 
         if (orientation == ORI_HEIGHT) {
-            targetDensity = (appDisplayMetrics.heightPixels - barHeight) / 667f;
+            targetDensity = (appDisplayMetrics.heightPixels - barHeight) / HEIGHT;
         } else {
             targetDensity = appDisplayMetrics.widthPixels / WIDTH;
         }
