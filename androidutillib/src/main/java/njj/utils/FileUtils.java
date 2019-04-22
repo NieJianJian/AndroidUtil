@@ -81,9 +81,9 @@ public class FileUtils {
     /**
      * 拷贝整个文件夹
      *
-     * @param oldPath
-     * @param newPath
-     * @return
+     * @param oldPath 旧的地址
+     * @param newPath 新的地址
+     * @return 成功与否
      */
     public static boolean copyFolder(String oldPath, String newPath) {
         try {

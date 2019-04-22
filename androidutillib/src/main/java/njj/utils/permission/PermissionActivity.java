@@ -62,7 +62,7 @@ public class PermissionActivity extends Activity {
                 boolean shouldRequestPermission = true;
                 for (int i = 0; i < grantResults.length; i++) {
                     if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
-                        /**
+                        /*
                          * shouldShowRequestPermissionRationale {true ： 拒绝 ； false : 拒绝后不在询问}
                          * 第一次打开app，在第一次弹出请求权限之前，是false。
                          */

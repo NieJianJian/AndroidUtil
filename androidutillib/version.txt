@@ -1,0 +1,5 @@
+v1.0.7
+    1.添加InstallApkUtils，用于安装apk时适配Android7.0 和8.0
+
+v1.0.6
+    1.增加FileUtils，简单的功能，后期完善

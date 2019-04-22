@@ -45,7 +45,7 @@ public class DefViewPager extends ViewPager {
     /**
      * 设置滚动切换的速度，单位ms。
      *
-     * @param duration
+     * @param duration 切换时间
      */
     public void setScrollInterval(int duration) {
         ViewPagerScroller pagerScroller = new ViewPagerScroller(getContext());
@@ -74,9 +74,6 @@ public class DefViewPager extends ViewPager {
      * 松手后，继续轮播，此设置只提供两个回调方法，具体相关逻辑，自己根据需求实现。
      * 如不需要，不需要调用setListener()方法即可。
      * 如有特殊需求，子类重写dispatchTouchEvent()方法即可
-     *
-     * @param ev
-     * @return
      */
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {

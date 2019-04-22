@@ -13,9 +13,7 @@ public class DisplayUtil {
     /**
      * 将px值转换成dip或者dp，保证尺寸大小不变
      *
-     * @param context
      * @param pxValue （DisplayMetrics类中属性density）
-     * @return
      */
     public static int px2dip(Context context, float pxValue) {
         Log.i("niejianjian", " -> px2dip -> DisplayMetrics = " + context.getResources().getDisplayMetrics().toString());
@@ -26,9 +24,7 @@ public class DisplayUtil {
     /**
      * 将dip或者dp转换成px值，保证尺寸大小不变
      *
-     * @param context
      * @param dipValue （DisplayMetrics类中属性density）
-     * @return
      */
     public static int dip2px(Context context, float dipValue) {
         Log.i("niejianjian", " -> px2dip -> DisplayMetrics = " + context.getResources().getDisplayMetrics().toString());
@@ -38,10 +34,6 @@ public class DisplayUtil {
 
     /**
      * 将px值转换成sp值，保证文字大小不变
-     *
-     * @param context
-     * @param pxValue
-     * @return
      */
     public static int px2sp(Context context, float pxValue) {
         final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;

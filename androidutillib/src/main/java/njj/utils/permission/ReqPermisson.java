@@ -39,8 +39,7 @@ public class ReqPermisson {
     /**
      * 传递需要请求的权限。所有的权限申请，需要先在AndroidManifest.xml文件中进行声明。否则无效。
      *
-     * @param permission
-     * @return
+     * @param permission 申请的权限数组
      */
     public ReqPermisson addPermission(String... permission) {
         this.mPermission = permission;
@@ -52,7 +51,6 @@ public class ReqPermisson {
      * 可以选择使用默认的弹窗，也可以屏蔽掉默认弹窗后，根据callback函数的回调方法，进行自定义的处理。
      *
      * @param isShow true表示弹窗提示，false表示不提示
-     * @return
      */
     public ReqPermisson isShowDialog(boolean isShow) {
         this.mIsShowDialog = isShow;
@@ -62,8 +60,7 @@ public class ReqPermisson {
     /**
      * 自定义禁止授予权限dialog的弹窗提示信息。（未勾选下次不在询问）
      *
-     * @param againMsg
-     * @return
+     * @param againMsg 提示信息
      */
     public ReqPermisson setAgainMsg(String againMsg) {
         this.mAgainMsg = againMsg;
@@ -73,8 +70,7 @@ public class ReqPermisson {
     /**
      * 自定义禁止授予权限dialog的弹窗提示信息。（勾选下次不在询问）
      *
-     * @param settingMsg
-     * @return
+     * @param settingMsg 提示信息
      */
     public ReqPermisson setSettingMsg(String settingMsg) {
         this.mSettingMsg = settingMsg;
@@ -98,7 +94,7 @@ public class ReqPermisson {
     /**
      * 需要实现回调的权限请求
      *
-     * @param callback
+     * @param callback 回调
      */
     public void request(PermissionCallback callback) {
         if (callback == null) {
