@@ -5,7 +5,7 @@ Android的工具类
 
 Gradle：
 
-    compile 'njj.utils:androidutillib:1.0.5'
+    compile 'njj.utils:androidutillib:1.0.7'
 
 Maven：
 
